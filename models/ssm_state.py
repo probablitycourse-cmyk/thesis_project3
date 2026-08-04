@@ -29,7 +29,7 @@ from .hippo import nplr_decompose
 def _inverse_softplus(y: torch.Tensor, eps: float = 1e-8) -> torch.Tensor:
     """w such that softplus(w) == y, for y > 0."""
     y = torch.clamp(y, min=eps)
-    return y + torch.log(-torch.expm1(-y).clamp(min=eps))
+    return  y + torch.log((-torch.expm1(-y)).clamp(min=eps))
 
 
 class SSMState(nn.Module):
